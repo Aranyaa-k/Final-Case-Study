@@ -1,61 +1,59 @@
-// Java program for simple calculator
-import java.io.*;
-import java.lang.*;
-import java.lang.Math;
-import java.util.Scanner;
+public class calc {
+    private double number1;
+    private double number2;
 
-// Driver class
-public class BasicCalculator {
-	// main function
-	public static void main(String[] args)
-	{
-		// Stores two numbers
-		double num1, num2;
+    // Getter for number1
+    public double getNumber1() {
+        return number1;
+    }
 
-		// Take input from the user
-		Scanner sc = new Scanner(System.in);
+    // Setter for number1
+    public void setNumber1(double number1) {
+        this.number1 = number1;
+    }
 
-		System.out.println("Enter the numbers:");
+    // Getter for number2
+    public double getNumber2() {
+        return number2;
+    }
 
-		// Take the inputs
-		num1 = sc.nextDouble();
-		num2 = sc.nextDouble();
+    // Setter for number2
+    public void setNumber2(double number2) {
+        this.number2 = number2;
+    }
 
-		System.out.println("Enter the operator (+,-,*,/):");
+    // Method to add the two numbers
+    public double add() {
+        return number1 + number2;
+    }
 
-		char op = sc.next().charAt(0);
-		double o = 0;
+    // Method to subtract the two numbers
+    public double subtract() {
+        return number1 - number2;
+    }
 
-		switch (op) {
-		// case to add two numbers
-		case '+':
-			o = num1 + num2;
-			break;
+    // Method to multiply the two numbers
+    public double multiply() {
+        return number1 * number2;
+    }
 
-		// case to subtract two numbers
-		case '-':
-			o = num1 - num2;
-			break;
+    // Method to divide the two numbers
+    public double divide() {
+        if (number2 != 0) {
+            return number1 / number2;
+        } else {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
+    }
 
-		// case to multiply two numbers
-		case '*':
-			o = num1 * num2;
-			break;
-
-		// case to divide two numbers
-		case '/':
-			o = num1 / num2;
-			break;
-
-		default:
-			System.out.println("You enter wrong input");
-		}
-
-		System.out.println("The final result:");
-		System.out.println();
-
-		// print the final result
-		System.out.println(num1 + " " + op + " " + num2
-						+ " = " + o);
-	}
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        calc.setNumber1(10);
+        calc.setNumber2(5);
+        System.out.println("Answers:");
+        System.out.println("Addition: " + calc.add());
+        System.out.println("Subtraction: " + calc.subtract());
+        System.out.println("Multiplication: " + calc.multiply());
+        System.out.println("Division: " + calc.divide());
+    }
 }
